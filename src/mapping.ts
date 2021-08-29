@@ -4,16 +4,20 @@ import {
 import {
   SetTextCall,
   TextChanged,
-} from "../generated/Contract/Contract"
+} from "../generated/PublicResolveV1/Contract"
 import { KEY_COM_TWITTER, KEY_TWITTER, KEY_VND_TWITTER } from "./constants";
 import { sanitizeTwitterHandle } from "./helpers";
 
-export function handleSetText(call: SetTextCall) {
+export function handleSetText(call: SetTextCall): void {
   let node = call.inputs.node.toHexString();
   let domain = Domain.load(node);
   if (!domain) {
     domain = new Domain(node);
   }
+
+  // set domain data
+  domain.node = call.inputs.node
+
   
   let key = call.inputs.key;
 
