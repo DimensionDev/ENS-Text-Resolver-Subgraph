@@ -1,10 +1,5 @@
-import {
-  Domain,
-} from "../generated/schema";
-import {
-  SetTextCall,
-  TextChanged,
-} from "../generated/PublicResolveV1/Contract"
+import { Domain } from "../generated/schema";
+import { SetTextCall } from "../generated/PublicResolveV1/Contract"
 import { KEY_COM_TWITTER, KEY_TWITTER, KEY_VND_TWITTER } from "./constants";
 import { sanitizeTwitterHandle } from "./helpers";
 
@@ -16,9 +11,9 @@ export function handleSetText(call: SetTextCall): void {
   }
 
   // set domain data
-  domain.node = call.inputs.node
+  domain.node = call.inputs.node;
+  domain.twitter = "";
 
-  
   let key = call.inputs.key;
 
   // twitter handle
@@ -28,5 +23,3 @@ export function handleSetText(call: SetTextCall): void {
 
   domain.save();
 }
-
-export function handleTextChanged(event: TextChanged): void {}

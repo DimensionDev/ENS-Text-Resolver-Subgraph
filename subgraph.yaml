@@ -21,9 +21,6 @@ dataSources:
       callHandlers:
         - function: setText(bytes32,string,string)
           handler: handleSetText
-      eventHandlers:
-        - event: TextChanged(indexed bytes32,indexed string,string)
-          handler: handleTextChanged
       file: ./src/mapping.ts
   - kind: ethereum/contract
     name: PublicResolveV2
@@ -44,9 +41,6 @@ dataSources:
       callHandlers:
         - function: setText(bytes32,string,string)
           handler: handleSetText
-      eventHandlers:
-        - event: TextChanged(indexed bytes32,indexed string,string)
-          handler: handleTextChanged
       file: ./src/mapping.ts
   - kind: ethereum/contract
     name: OldPublicResolveV1
@@ -67,9 +61,6 @@ dataSources:
       callHandlers:
         - function: setText(bytes32,string,string)
           handler: handleSetText
-      eventHandlers:
-        - event: TextChanged(indexed bytes32,indexed string,string)
-          handler: handleTextChanged
       file: ./src/mapping.ts
   - kind: ethereum/contract
     name: OldPublicResolveV2
@@ -90,7 +81,4 @@ dataSources:
       callHandlers:
         - function: setText(bytes32,string,string)
           handler: handleSetText
-      eventHandlers:
-        - event: TextChanged(indexed bytes32,indexed string,string)
-          handler: handleTextChanged
       file: ./src/mapping.ts

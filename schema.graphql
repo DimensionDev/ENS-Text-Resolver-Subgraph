@@ -1,8 +1,5 @@
 type Domain @entity {
   id: ID!
   node: Bytes!
-  url: String
-  github: String
-  facebook: String
   twitter: String
 }
