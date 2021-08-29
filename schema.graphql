@@ -1,6 +1,9 @@
-type ExampleEntity @entity {
+type Domain @entity {
   id: ID!
-  count: BigInt!
-  node: Bytes! # bytes32
-  contentType: BigInt! # uint256
+  node: Bytes!
+  name: String!
+  url: String
+  github: String
+  facebook: String
+  twitter: String
 }
