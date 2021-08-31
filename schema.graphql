@@ -1,16 +1,11 @@
 type Domain @entity {
   id: ID!
-  owner: Bytes!
+  owner: Bytes
   eth_address: Bytes
-}
-
-type Node @entity {
-  id: ID!
-  domain: Domain
 }
 
 type TwitterHandle @entity {
   id: ID!
   raw: String!
-  nodes: [Node]!
+  domains: [Domain]!
 }
