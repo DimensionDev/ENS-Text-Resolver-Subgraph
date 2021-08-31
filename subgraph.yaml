@@ -7,7 +7,7 @@ dataSources:
     network: mainnet
     source:
       address: "0xdaaf96c344f63131acadd0ea35170e7892d3dfba"
-      abi: Contract
+      abi: Resolver
       startBlock: 9380387
     mapping:
       kind: ethereum/events
@@ -16,18 +16,21 @@ dataSources:
       entities:
         - Domain
       abis:
-        - name: Contract
-          file: ./abis/Contract.json
+        - name: Resolver
+          file: ./abis/Resolver.json
       callHandlers:
         - function: setText(bytes32,string,string)
           handler: handleSetText
+      eventHandlers:
+        - event: AddressChanged(indexed bytes32,uint256,bytes)
+          handler: handleAddressChanged
       file: ./src/mapping.ts
   - kind: ethereum/contract
     name: PublicResolveV2
     network: mainnet
     source:
       address: "0x4976fb03c32e5b8cfe2b6ccb31c09ba78ebaba41"
-      abi: Contract
+      abi: Resolver
       startBlock: 9412610
     mapping:
       kind: ethereum/events
@@ -36,18 +39,21 @@ dataSources:
       entities:
         - Domain
       abis:
-        - name: Contract
-          file: ./abis/Contract.json
+        - name: Resolver
+          file: ./abis/Resolver.json
       callHandlers:
         - function: setText(bytes32,string,string)
           handler: handleSetText
+      eventHandlers:
+        - event: AddressChanged(indexed bytes32,uint256,bytes)
+          handler: handleAddressChanged
       file: ./src/mapping.ts
   - kind: ethereum/contract
     name: OldPublicResolveV2
     network: mainnet
     source:
       address: "0x226159d592e2b063810a10ebf6dcbada94ed68b8"
-      abi: Contract
+      abi: Resolver
       startBlock: 8659893
     mapping:
       kind: ethereum/events
@@ -56,9 +62,35 @@ dataSources:
       entities:
         - Domain
       abis:
-        - name: Contract
-          file: ./abis/Contract.json
+        - name: Resolver
+          file: ./abis/Resolver.json
       callHandlers:
         - function: setText(bytes32,string,string)
           handler: handleSetText
+      eventHandlers:
+        - event: AddressChanged(indexed bytes32,uint256,bytes)
+          handler: handleAddressChanged
+      file: ./src/mapping.ts
+  - kind: ethereum/contract
+    name: Registrar
+    network: mainnet
+    source:
+      address: "0x00000000000C2E074eC69A0dFb2997BA6C7d2e1e"
+      abi: Registrar
+      startBlock: 9380380
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - NewOwner
+        - Transfer
+      abis:
+        - name: Registrar
+          file: ./abis/Registrar.json
+      eventHandlers:
+        - event: NewOwner(indexed bytes32,indexed bytes32,address)
+          handler: handleNewOwner
+        - event: Transfer(indexed bytes32,address)
+          handler: handleTransfer
       file: ./src/mapping.ts

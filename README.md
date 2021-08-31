@@ -13,7 +13,15 @@ yarn build
 
 Make sure to update package.json settings to point to your own graph account.
 
-## Resolvers
+### Contracts
+
+### Registrar
+
+| Registrar Name | Address |
+| -------------- | ------- |
+| ENS: Registry with Fallback | https://etherscan.io/address/0x00000000000c2e074ec69a0dfb2997ba6c7d2e1e |
+
+### Resolvers
 
 | Resolver Name | Address |
 | ------------- | ------- |
@@ -27,3 +35,6 @@ Make sure to update package.json settings to point to your own graph account.
 ### Domain
 
 Contains data about a domain.
+
+### TwitterHandle
+Contains data about a Twitter handle.
